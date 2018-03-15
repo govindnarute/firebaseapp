@@ -20,7 +20,13 @@ tr:hover{
   color:#fff;
 }
 
-
+.panel-primary>.panel-heading {
+    background-color:#009688 !important;
+    color:#fff;
+    text-transform: uppercase;
+   
+    border-color: #009688;
+}
 
 
 @media only screen and (max-device-width: 768px) {

@@ -35,7 +35,7 @@ export class AppComponent {
 
   }
    logMeOut(){
-     alert('logout')
+     //alert('logout')
     this.authService.logout().then((data)=>{
       this.router.navigateByUrl("/login");
     })

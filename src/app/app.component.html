@@ -16,7 +16,7 @@
       </ul>
       <ul class="nav navbar-nav navbar-right">
        
-        <li routerLink="/login" routerLinkActive="active" *ngIf="!isUserLogin"><a href=""><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+        <li routerLink="/login" routerLinkActive="active" *ngIf="!isUserLogin"> <a href=""><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
         <li *ngIf="isUserLogin"><a href (click)="logMeOut()"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
          <!--<li *ngIf="isUserLogin"> <button (click)="openLogoutPopup()"><span class="glyphicon glyphicon-log-out"></span> Logout</button></li>-->
         
