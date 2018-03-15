@@ -1,19 +1,32 @@
 <div class="container-fluid">
-<nav class="navbar navbar-default">
+<nav class="navbar navbar-default navbar-fixed-top">
   <div class="container-fluid">
     <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
       <a class="navbar-brand" href="#">Firebase Authentication</a>
     </div>
-    <ul class="nav navbar-nav">
-      <li class="active"><a href="#">Home</a></li>
-      
-    </ul>
-    <ul class="nav navbar-nav navbar-right">
-      
-      <li *ngIf="!isUserLogin"><a href=""><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-      <li *ngIf="isUserLogin"> <a href=""><span>Welcome {{username}} Email:{{useremail}}</span></a></li>
-    </ul>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li routerLink="/home" routerLinkActive="active"><a href="#">Home</a></li>
+        
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+       
+        <li routerLink="/login" routerLinkActive="active" *ngIf="!isUserLogin"><a href=""><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+        <li *ngIf="isUserLogin"><a href (click)="logMeOut()"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+         <!--<li *ngIf="isUserLogin"> <button (click)="openLogoutPopup()"><span class="glyphicon glyphicon-log-out"></span> Logout</button></li>-->
+        
+      </ul>
+    </div>
   </div>
 </nav>
+
+<popup  #logout>
+    Add your custom html elements here
+</popup>
 <router-outlet></router-outlet>
 </div>

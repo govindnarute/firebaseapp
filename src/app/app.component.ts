@@ -1,8 +1,10 @@
-import { Component } from '@angular/core';
+import { Component,ViewChild  } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { AngularFireAuth } from 'angularfire2/auth';
 import * as firebase from 'firebase/app';
 import { Router } from "@angular/router";
+import { AuthService } from "./provider/auth.service";
+import {Popup} from 'ng2-opd-popup';
 
 @Component({
   selector: 'app-root',
@@ -11,10 +13,14 @@ import { Router } from "@angular/router";
 })
 export class AppComponent {
   title = 'app';
-  isUserLogin:boolean
-  username:string
-  useremail:string
-  constructor(private afAuth: AngularFireAuth,private router:Router){
+  isUserLogin:boolean;
+  username:string;
+  useremail:string;
+  
+  @ViewChild('logout') popup1: Popup;
+
+  constructor(private afAuth: AngularFireAuth,private router:Router,private authService:AuthService,
+  private popup:Popup){
     afAuth.authState.subscribe((auth)=>{
       if(auth==null){
         this.isUserLogin=false
@@ -27,5 +33,18 @@ export class AppComponent {
       }
     })
 
+  }
+   logMeOut(){
+     alert('logout')
+    this.authService.logout().then((data)=>{
+      this.router.navigateByUrl("/login");
+    })
+
+  }
+  openLogoutPopup(){
+    this.popup1.show();
+  }
+  yesLogMeOut(){
+    this.logMeOut();
   }
 }

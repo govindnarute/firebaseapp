@@ -1,1 +1,31 @@
 /* You can add global styles to this file, and also import other style files */
+.mt50{
+margin-top: 50px;
+}
+.mt10p{
+    margin-top: 10%;
+}
+.mt10{
+    margin-top: 10px;
+}
+tr>th{
+  background-color:#009688;
+  color:#fff;
+  text-transform: uppercase;
+  text-align: center;
+
+}
+tr:hover{
+    background-color:#009688 !important;
+  color:#fff;
+}
+
+
+
+
+@media only screen and (max-device-width: 768px) {
+/* Styles */
+.mt10p{
+    margin-top: 50%;
+}
+}
